@@ -49,7 +49,7 @@ export default {
   methods: {
     getTodos: function() {
       console.log("getTodos");
-      API.get('todosApiZZZ', `/todos`, {}).then((result) => {
+      API.get('restApi', `/items`, {}).then((result) => {
         console.log(result);
       }).catch(err => {
         console.log(err);
@@ -59,7 +59,7 @@ export default {
       const id = this.lastTodoId;
       if (!id) return;
       console.log(`getTodo-${id}`);
-      API.get('todosApiZZZ', `/todos/${id}`, {}).then((result) => {
+      API.get('restApi', `/items/${id}`, {}).then((result) => {
         console.log(result);
       }).catch(err => {
         console.log(err);
@@ -67,7 +67,7 @@ export default {
     },    
     addTodo: function() {
       console.log(`addTodo`);
-      API.post('todosApiZZZ', `/todos`, { 
+      API.post('restApi', `/items`, { 
         body: {
           text: "todo1"
         }
@@ -82,7 +82,7 @@ export default {
       const id = this.lastTodoId;
       if (!id) return;
       console.log(`updateTodo-${id}`);
-      API.put('todosApiZZZ', `/todos`, { 
+      API.put('restApi', `/items`, { 
         body: {
           id: id,
           text: "todo2",
@@ -98,7 +98,7 @@ export default {
       const id = this.lastTodoId;
       if (!id) return;
       console.log(`deleteTodo-${id}`);
-      API.del('todosApiZZZ', `/todos/${id}`, {}).then(result => {
+      API.del('restApi', `/items/${id}`, {}).then(result => {
         console.log(result);
         this.lastTodoId = "";
       }).catch(err => {
